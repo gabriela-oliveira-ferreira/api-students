@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"net/http"
 
+	"github.com/gabriela-oliveira-ferreira/api-students.git/db"
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
 )
@@ -27,12 +28,15 @@ func main() {
 	e.Logger.Fatal(e.Start(":8080"))
 }
 
+
+
 // Handler
 func getStudents(c echo.Context) error {
 	return c.String(http.StatusOK, "List of all students")
 }
 
 func createStudent(c echo.Context) error {
+   db.AddStudent()
 	return c.String(http.StatusOK, "Create student")
 }
 
